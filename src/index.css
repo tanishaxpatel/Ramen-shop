@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  font-family: "Lilita One", serif;
+}
+/* For modern browsers */
+html {
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Edge, Safari */
+}
