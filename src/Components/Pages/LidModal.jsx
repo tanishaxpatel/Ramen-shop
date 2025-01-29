@@ -1,15 +1,19 @@
 import React from "react";
 import lid from "../../assets/top.webp";
 import BigCircle from "../BigCircle";
+import { centerLabel, noodleOptions } from "./Constant";
 
-const LidModal = () => {
+const LidModal = (props) => {
+  const { noodles } = props;
+  const text = "WOK STYLE CHOWMEIN";
+  const letters = text.split("");
   return (
     <>
       <div className="flex justify-center items-center">
         <div
           className="flex justify-center items-center rounded-full"
           style={{
-            backgroundColor: "rgb(240 90 82)",
+            backgroundColor: noodleOptions[noodles]?.color,
             width: "90rem",
             height: "90rem",
           }}
@@ -17,24 +21,36 @@ const LidModal = () => {
           <div
             className="flex justify-center items-center rounded-full"
             style={{
-              backgroundColor: "rgb(230 86 80)",
+              backgroundColor: noodleOptions[noodles]?.darkColor,
               width: "70rem",
               height: "70rem",
             }}
           >
+            {letters.map((letter, index) => (
+              <span
+                key={index}
+                className="absolute text-red-600 text-8xl font-bold"
+                style={{
+                  transform: `rotate(${
+                    (360 / letters.length) * index
+                  }deg) translate(25rem)`,
+                }}
+              >
+                {letter}
+              </span>
+            ))}
             <div
               className="flex justify-center items-center rounded-full"
               style={{
-                backgroundColor: "rgb(219 83 79)",
+                backgroundColor: noodleOptions[noodles]?.darekestColor,
                 width: "40.5rem",
                 height: "40.5rem",
               }}
             >
               <img
-                src={lid}
+                src={centerLabel.lid.image}
                 alt="lid"
-                className="m-auto w-72 object-contain"
-                style={{ transform: "rotate(228deg)" }}
+                className="m-auto w-80 object-contain"
               />
             </div>
           </div>

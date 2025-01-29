@@ -6,21 +6,31 @@ import tutorial3 from "../../assets/tutorial3.svg";
 import plus from "../../assets/plus.svg";
 import LidModal from "./LidModal";
 import BigCircle from "../BigCircle";
+import { noodleOptions } from "./Constant";
 
-const BigWave = () => {
+const BigWave = (props) => {
+  const { noodles } = props;
+
   return (
-    <div className=" w-screen h-[250vh] bg-[#f15a52]  bg-[url('./src/assets/Waves.png')] bg-[50%] text-white  px-24 flex flex-col ">
+    <div
+      className=" w-screen h-[250vh]   bg-[url('./src/assets/Waves.png')] bg-[50%] text-white  px-24 flex flex-col "
+      style={{ backgroundColor: noodleOptions[noodles]?.color }}
+    >
       <div className="grid grid-cols-2">
         <div>
           <div className="mb-24">
-            <h1 className="text-3xl font-bold mb-4">Banzai Noodles</h1>
-            <h2 className="text-6xl font-semibold mb-6">Beef Flavor</h2>
+            <h1 className="text-3xl font-bold mb-4">
+              {noodleOptions[noodles]?.title}
+            </h1>
+            <h2 className="text-6xl font-semibold mb-6">
+              {noodleOptions[noodles]?.subTitle}
+            </h2>
           </div>
           <div>
             <img
-              src={manzo}
+              src={noodleOptions[noodles]?.image}
               alt="CupNoddle"
-              className="max-w-60 animate-tilt-up"
+              className="max-w-90 animate-tilt-up"
             />
           </div>
         </div>
@@ -58,12 +68,12 @@ const BigWave = () => {
           </div>
         </div>
       </div>
-      <div className="absolute  w-[1000px] top-[1400px] left-[210px]">
+      {/* <div className="absolute  w-[1000px] top-[1400px] left-[210px]">
         <BigCircle />
-      </div>
+      </div> */}
 
       <div className="flex justify-center items-center h-full w-full">
-        <LidModal />
+        <LidModal noodles={noodles} />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import {
   Box,
   CameraControls,
+  Html,
   OrbitControls,
   Sphere,
   useHelper,
@@ -13,6 +14,8 @@ import { SpotLightHelper } from "three";
 import Shop from "../3d/Shop";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import Charter from "../3d/Charter";
+import HomePageContainer from "./HomePageContainer";
+import { useNavigate } from "react-router-dom";
 
 function Floor() {
   return (
@@ -90,54 +93,26 @@ function Lights() {
 }
 
 function Home() {
-  const spotRef = useRef();
-  const controls = useRef();
-  // const intro = async () => {
-  //   console.log(controls.current, "///.");
-
-  //   controls?.current?.dolly(-22);
-  //   controls?.current?.dolly(22);
-  // };
-  // useEffect(() => {
-  //   intro();
-  // }, [])
-
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/chicken-noodles");
+  };
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen">
       <Canvas
         camera={{ position: [10, 8, 20] }}
         shadows
         gl={{ antialias: true }}
       >
-        {/* <CameraZoomEffect /> */}
+        <CameraZoomEffect />
         <Suspense fallback={null}>
           <Background />
 
-          {/* <spotLight
-            ref={spotRef}
-            position={[10, 10, 10]}
-            intensity={400}
-            color={"#711c91"}
-            castShadow
-            shadow-mapSize-width={1024} // Set shadow map size for better quality
-            shadow-mapSize-height={1024} // Set shadow map size for better quality
-            shadow-bias={-0.0001} // Prevent shadow artifacts (optional)
-          /> */}
-          {/* <spotLight
-            position={[-10, 6, 10]}
-            intensity={200}
-            color={"#0abdc6"}
-            castShadow
-            shadow-mapSize-width={1024} // Set shadow map size for better quality
-            shadow-mapSize-height={1024} // Set shadow map size for better quality
-            shadow-bias={-0.0001} // Prevent shadow artifacts (optional)
-          /> */}
-          {/* <Lights />
-          <Shop /> */}
-          <Charter />
-          {/* <Floor /> */}
-          {/* <fog attach="fog" args={["#1e0f1d", 10, 150]} /> */}
-
+          <Lights />
+          <Shop />
+          <Html fullscreen>
+            <HomePageContainer handleClick={handleClick} />
+          </Html>
           <ambientLight intensity={0.4} />
 
           <OrbitControls
@@ -145,8 +120,8 @@ function Home() {
             enablePan={false}
             minPolarAngle={0}
             maxPolarAngle={Math.PI / 2}
-            minDistance={5} // Minimum zoom distance (can zoom in)
-            maxDistance={20} // Maximum zoom distance (can zoom out)
+            minDistance={5}
+            maxDistance={20}
           />
         </Suspense>
       </Canvas>

@@ -3,15 +3,26 @@ import polloNoddle from "../../assets/polloNoddle.png";
 import yellowBlob from "../../assets/square.svg";
 import orangeBlob from "../../assets/redbolb.svg";
 import greenBlob from "../../assets/greenblob.svg";
+import { noodleOptions } from "./Constant";
 
-const BanzaiFlavors = () => {
+const BanzaiFlavors = (props) => {
+  const { noodles, setNoodles } = props;
+  // Filter out the selected noodle from the options
+  const filteredNoodles = Object.entries(noodleOptions).filter(
+    ([key]) => key.toLowerCase() !== noodles.toLowerCase()
+  );
+  console.log(filteredNoodles);
+  const handleClick = (color) => {
+    console.log(color);
+
+    setNoodles(color);
+  };
+
   return (
     <div className="bg-[#f5d93f] min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mb-16">Scopri tutti i gusti</h1>
+      <h1 className="text-4xl font-bold mb-16">DID YOU MISS ADDING THESE?</h1>
       <div className="flex gap-36">
-        {/* Flavor Card - Manzo */}
-        <div className="flex flex-col items-center relative group">
-          {/* Blob Background */}
+        {/* <div className="flex flex-col items-center relative group">
           <img
             src={orangeBlob}
             alt="Red Blob"
@@ -27,9 +38,7 @@ const BanzaiFlavors = () => {
           </div>
         </div>
 
-        {/* Flavor Card - Pollo */}
         <div className="flex flex-col items-center relative group">
-          {/* Blob Background */}
           <img
             src={yellowBlob}
             alt="Orange Blob"
@@ -45,9 +54,7 @@ const BanzaiFlavors = () => {
           </div>
         </div>
 
-        {/* Flavor Card - Verdure */}
         <div className="flex flex-col items-center relative group">
-          {/* Blob Background */}
           <img
             src={greenBlob}
             alt="Green Blob"
@@ -61,7 +68,36 @@ const BanzaiFlavors = () => {
           <div className="text-white font-bold py-2 px-4 mt-4 z-10 text-2xl">
             VERDURE
           </div>
-        </div>
+        </div> */}
+        {filteredNoodles.map(
+          ([key, { image, color, title, subTitle, blob }]) => (
+            <div
+              key={key}
+              className="flex flex-col items-center relative group"
+              onClick={() => {
+                handleClick(key);
+              }}
+            >
+              {/* Blob Background */}
+              <img
+                src={blob}
+                alt="Green Blob"
+                className="absolute w-64 h-64 -bottom-12 z-0"
+              />
+              {/* Noodle Image */}
+              <img
+                src={image}
+                alt={subTitle}
+                className="w-60 h-60 object-contain z-10 transform transition-transform duration-300 group-hover:-translate-y-4"
+              />
+              {/* Title and Subtitle */}
+              <div className="text-white font-bold py-2 px-4 mt-4 z-10 text-2xl">
+                {subTitle}
+              </div>
+              {/* <div className="text-white font-medium mt-2 z-10">{subTitle}</div> */}
+            </div>
+          )
+        )}
       </div>
     </div>
   );

@@ -3,18 +3,16 @@ import CharterModal from "./Components/Pages/CharterModal";
 import BanzaiFlavors from "./Components/Pages/BanzaiFlavors";
 import Hero from "./Components/Pages/Hero";
 import Home from "./Components/Pages/Home";
+import { Route, Router, Routes } from "react-router-dom";
+import ChickenNoodles from "./Components/Pages/ChickenNoodles";
 
 function App() {
   return (
-    // <div className="bg-[#f15a52] overflow-x-hidden">
-    //   <Hero />
-    //   <BigWave />
-    //   <CharterModal />
-    //   <BanzaiFlavors />
-    // </div>
-    <div>
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/chicken-noodles" element={<ChickenNoodles />} />
+      {/* <Route path="/veg-noodles" element={<VegNoodles />} /> */}
+    </Routes>
   );
 }
 
