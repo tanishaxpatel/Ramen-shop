@@ -77,7 +77,7 @@ function CameraZoomEffect() {
 }
 function Lights() {
   const light = useRef();
-  useHelper(light, THREE.SpotLightHelper, "red");
+  // useHelper(light, THREE.SpotLightHelper, "red");
   return (
     <spotLight
       ref={light}
@@ -95,7 +95,7 @@ function Lights() {
 function Home() {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/chicken-noodles");
+    navigate("/noodles");
   };
   return (
     <div className="h-screen">

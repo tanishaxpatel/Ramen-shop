@@ -1,13 +1,17 @@
 import React from "react";
+import logo from "../../assets/woktok-logo.svg";
 
 function HomePageContainer(props) {
   const { handleClick } = props;
   return (
     <div className="mt-36 ml-36 text-white">
+      <img
+        src={logo}
+        alt="logo"
+        className="absolute top-0 left-0 m-4 w-24 h-auto"
+      />
       <h1 className="text-8xl uppercase">Noodles</h1>
-      <h2 className="text-6xl uppercase mb-8">
-        With fresh Vegetables and eggs{" "}
-      </h2>
+      <h2 className="text-6xl uppercase mb-8">Wok Tok Instant Noodles</h2>
       {/* <hr className=" mb-8" /> */}
       <p className="mb-4">
         A perfect blend of spices that brings a punch of favourite flavor – your

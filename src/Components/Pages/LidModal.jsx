@@ -29,11 +29,12 @@ const LidModal = (props) => {
             {letters.map((letter, index) => (
               <span
                 key={index}
-                className="absolute text-red-600 text-8xl font-bold"
+                className="absolute text-8xl font-bold"
                 style={{
                   transform: `rotate(${
                     (360 / letters.length) * index
                   }deg) translate(25rem)`,
+                  color: noodleOptions[noodles]?.titleColor,
                 }}
               >
                 {letter}

@@ -10,8 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/chicken-noodles" element={<ChickenNoodles />} />
-      {/* <Route path="/veg-noodles" element={<VegNoodles />} /> */}
+      <Route path="/noodles" element={<ChickenNoodles />} />
     </Routes>
   );
 }
