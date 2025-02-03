@@ -7,13 +7,14 @@ import plus from "../../assets/plus.svg";
 import LidModal from "./LidModal";
 import BigCircle from "../BigCircle";
 import { noodleOptions } from "./Constant";
+import NutritionTable from "./NutritionTable";
 
 const BigWave = (props) => {
   const { noodles } = props;
 
   return (
     <div
-      className=" w-screen h-[250vh]   bg-[url('./src/assets/Waves.png')] bg-[50%] text-white  px-24 flex flex-col "
+      className="  h-[320vh]   bg-[url('./src/assets/Waves.png')] bg-[50%] text-white  px-24 flex flex-col "
       style={{ backgroundColor: noodleOptions[noodles]?.color }}
     >
       <div className="grid grid-cols-2">
@@ -66,6 +67,7 @@ const BigWave = (props) => {
               <img src={plus} alt="plus" />
             </div>
           </div>
+          <NutritionTable noodles={noodles} />
         </div>
       </div>
       {/* <div className="absolute  w-[1000px] top-[1400px] left-[210px]">

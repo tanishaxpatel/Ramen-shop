@@ -6,6 +6,8 @@ export default {
       animation: {
         "tilt-up": "tiltUp 3s ease-in-out infinite alternate",
         "spin-slow": "spin 9s linear infinite",
+        banner: "moveBanner 10s linear infinite",
+        spinFast: "spinFast 3s linear infinite",
       },
       keyframes: {
         spinSlow: {
@@ -23,6 +25,14 @@ export default {
           "100%": {
             transform: "translate(0, -10px) rotate(-10deg)",
           },
+        },
+        moveBanner: {
+          "0%": { left: "100%" }, // Start at the right
+          "100%": { left: "-100%" }, // End at the left
+        },
+        spinFast: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
     },

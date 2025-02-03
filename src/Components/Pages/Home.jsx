@@ -13,7 +13,7 @@ import { Gradient, LayerMaterial } from "lamina";
 import { SpotLightHelper } from "three";
 import Shop from "../3d/Shop";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import Charter from "../3d/Charter";
+
 import HomePageContainer from "./HomePageContainer";
 import { useNavigate } from "react-router-dom";
 

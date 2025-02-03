@@ -13,7 +13,7 @@ function CharterModal(props) {
             color: noodleOptions[noodles].titleColor,
             backgroundColor: noodleOptions[noodles].color,
           }}
-          className="absolute z-10 text-[40vh]"
+          className="absolute z-10 text-[32vh]"
         >
           {noodleOptions[noodles].subTitle}
         </h1>
@@ -24,7 +24,11 @@ function CharterModal(props) {
           <br />
           <span className="bg-yellow-200 text-2xl">No added MSG</span>
         </div>
-        <img src={rosy} alt="rosy" className="absolute z-20 w-64" />
+        <img
+          src={noodleOptions[noodles].CharacterImage}
+          alt="rosy"
+          className="absolute z-20 w-64"
+        />
       </div>
       <img src={spaghetti} alt="Spaghetti " />
     </>
