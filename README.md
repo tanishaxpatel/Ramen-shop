@@ -16,15 +16,12 @@ Make sure you have the following installed:
 
 ### Steps
 
-1. Clone the repository:
+## Installation
+
+Follow these steps to set up the project on your local machine:
+
+1. Clone the repository, navigate to the project folder, install dependencies, and run the development server all in one go:
    ```bash
-   git clone https://github.com/tanishaxpatel/Ramen-shop.git
-2. Navigate into the project folder:
-   cd Ramen-shop
-3. Install the necessary dependencies:
-   npm install
-  # or
-  yarn install
-4.Run the development server:
-  npm run dev
+   git clone https://github.com/tanishaxpatel/Ramen-shop.git && cd Ramen-shop && npm install && npm run dev
+
 
